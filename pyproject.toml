@@ -1,0 +1,23 @@
+[tool.black]
+exclude = '''
+(
+  /(
+      \.git         # exclude a few common directories
+    | \.direnv
+    | \.github
+    | \.pytest_cache
+    | \.venv
+    | htmlcov
+    | venv
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+lines_after_imports = 2
+skip_glob = [".direnv", "venv", ".venv"]
+
+[tool.sqlfluff.core]
+dialect = "tsql"
+exclude_rules = "CP02"

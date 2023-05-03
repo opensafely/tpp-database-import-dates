@@ -1,0 +1,31 @@
+---
+name: CI
+
+on:
+  push:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: "opensafely-core/setup-action@v1"
+        with:
+          python-version: "3.8"
+          install-just: true
+      - name: Check formatting, linting and import sorting
+        run: just check
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: "opensafely-core/setup-action@v1"
+        with:
+          python-version: "3.8"
+          install-just: true
+      - name: Run tests
+        run: |
+          just test

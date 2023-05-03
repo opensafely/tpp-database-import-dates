@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>OpenSAFELY-TPP Database Import Dates</title>
+</head>
+
+<body>
+    <h1>OpenSAFELY-TPP Database Import Dates</h1>
+    <p>
+        This report displays the import dates of the data sources in the OpenSAFELY-TPP database.
+        It is part of the OpenSAFELY platform's technical documentation
+        and is published at <a href="https://reports.opensafely.org/">https://reports.opensafely.org/</a>.
+    </p>
+    <p>
+        If you would like to use the OpenSAFELY platform, then you should read
+        our <a href="https://docs.opensafely.org/">documentation</a>,
+        our <a href="https://www.opensafely.org/about/">principles</a>,
+        and our process for <a href="https://www.opensafely.org/onboarding-new-users/">onboarding new users</a>.
+        If you would like to see the code we used to create this report,
+        then you can <a href="https://github.com/opensafely/">view it on GitHub</a>.
+    </p>
+    <h2>Data Sources</h2>
+    <p>
+        The <a href="https://reports.opensafely.org/reports/opensafely-tpp-database-schema/"><em>OpenSAFELY-TPP Database Schema</em></a>
+        report contains information about the data sources in the OpenSAFELY-TPP database.
+    </p>
+    <h2>Report Run Date</h2>
+    <p>
+        This report was run on {{ run_date|date_format }}.
+        It reflects the state of the database on this date.
+    </p>
+    <h2>Import Dates</h2>
+    <p>
+        TPP create a snapshot of the primary care information captured in the SystmOne database;
+        this is processed before it is imported into the OpenSAFELY-TPP database.
+        TPP also receive (or "ingest") external data sources from NHS Digital, ONS, etc.
+        These external data sources are also processed before they are imported into the OpenSAFELY-TPP database.
+        In each case, a new import overwrites the previous import.
+        Once a data source has been imported,
+        it can be queried immediately from <a href="https://docs.opensafely.org/security-levels/#level-3">Level 3</a>.
+    </p>
+    <p>
+        The dates in the sections below reflect when the data sources were last imported into the OpenSAFELY-TPP database.
+        They do not reflect when the data sources were received by TPP,
+        nor when the event activity occurred.
+    </p>
+    <h3>Latest Import Dates</h3>
+    <table>
+        <tr>
+            <th>Data Source</th>
+            <th>Latest Import Date</th>
+        </tr>
+        {% for latest_import_date in latest_import_dates %}
+        <tr>
+            <td>{{ latest_import_date.build_desc }}</td>
+            <td>{{ latest_import_date.build_date|date_format }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>All Import Dates</h3>
+    <p><img src="{{ plot|b64encode }}" title="Image generated from {{ plot }}"></p>
+</body>
+
+</html>
