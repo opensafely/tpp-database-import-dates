@@ -24,7 +24,7 @@ def main():
     utils.makedirs(f_out.parent)
     rendered_report = render_report(
         {
-            "run_date": datetime.date.today(),
+            "run_date": utils.get_run_date(),
             "latest_import_dates": get_latest_import_dates(
                 utils.OUTPUT_DIR / "latest_import_dates" / "latest_import_dates.csv"
             ),

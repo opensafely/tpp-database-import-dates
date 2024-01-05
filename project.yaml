@@ -9,10 +9,13 @@ actions:
       sqlrunner:latest
         --dummy-data-file analysis/dummy_rows.csv.gz
         --output output/query/rows.csv.gz
+        --log-file output/query/log.json
         analysis/query.sql
     outputs:
       highly_sensitive:
         rows: output/query/rows.csv.gz
+      moderately_sensitive:
+        log: output/query/log.json
 
   latest_import_dates:
     needs: [query]
@@ -29,7 +32,7 @@ actions:
         latest_import_dates: output/plot/plot.png
 
   render_report:
-    needs: [latest_import_dates, plot]
+    needs: [query, latest_import_dates, plot]
     run: python:latest python -m analysis.render_report
     outputs:
       moderately_sensitive:
