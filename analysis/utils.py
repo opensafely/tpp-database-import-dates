@@ -1,15 +1,10 @@
 import functools
 import json
 import os
-import pathlib
 
 import dateutil.parser
 
-WORKSPACE_DIR = pathlib.Path(__file__).parents[1]
-
-ANALYSIS_DIR = WORKSPACE_DIR / "analysis"
-
-OUTPUT_DIR = WORKSPACE_DIR / "output"
+from analysis import OUTPUT_DIR
 
 makedirs = functools.partial(os.makedirs, exist_ok=True)
 

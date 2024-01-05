@@ -10,11 +10,10 @@ import mimetypes
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from analysis import utils
-
+from analysis import ANALYSIS_DIR, utils
 
 ENVIRONMENT = Environment(
-    loader=FileSystemLoader(utils.ANALYSIS_DIR),
+    loader=FileSystemLoader(ANALYSIS_DIR),
     undefined=StrictUndefined,
 )
 
