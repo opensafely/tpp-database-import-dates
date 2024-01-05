@@ -4,15 +4,15 @@ import pandas
 from matplotlib import pyplot
 from matplotlib.dates import num2date
 
-from analysis import utils
+from analysis import OUTPUT_DIR, utils
 
 
 def main():
-    f_in = utils.OUTPUT_DIR / "query" / "rows.csv.gz"
+    f_in = OUTPUT_DIR / "query" / "rows.csv.gz"
     rows = read(f_in)
     fig = plot(rows)
 
-    f_out = utils.OUTPUT_DIR / "plot" / "plot.png"
+    f_out = OUTPUT_DIR / "plot" / "plot.png"
     utils.makedirs(f_out.parent)
     fig.savefig(f_out)
 
