@@ -1,5 +1,5 @@
-"""Plot the import dates of the data sources.
-"""
+"""Plot the import dates of the data sources."""
+
 import pandas
 from matplotlib import pyplot
 from matplotlib.dates import num2date
