@@ -1,5 +1,5 @@
-"""Get the latest import dates of the data sources.
-"""
+"""Get the latest import dates of the data sources."""
+
 import pandas
 
 from analysis import utils
