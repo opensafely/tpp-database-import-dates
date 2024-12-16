@@ -4,10 +4,6 @@
 #
 #    pip-compile --allow-unsafe --generate-hashes --output-file=requirements.dev.txt requirements.dev.in
 #
-appdirs==1.4.4 \
-    --hash=sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41 \
-    --hash=sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128
-    # via sqlfluff
 attrs==22.2.0 \
     --hash=sha256:29e95c7f6778868dbd49170f98f8818f78f3dc5e0e37c0b1f474e3561b240836 \
     --hash=sha256:c9227bfc2f01993c03f68db37d1d15c9690188323c067c641f1a35ca58185f99
@@ -185,6 +181,7 @@ platformdirs==3.2.0 \
     --hash=sha256:ebe11c0d7a805086e99506aa331612429a72ca7cd52a1f0d277dc4adc20cb10e
     # via
     #   black
+    #   sqlfluff
     #   virtualenv
 pluggy==1.0.0 \
     --hash=sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159 \
@@ -336,9 +333,9 @@ ruff==0.8.2 \
     --hash=sha256:f05cdf8d050b30e2ba55c9b09330b51f9f97d36d4673213679b965d25a785f3c \
     --hash=sha256:fb88e2a506b70cfbc2de6fae6681c4f944f7dd5f2fe87233a7233d888bad73e8
     # via -r requirements.dev.in
-sqlfluff==3.2.5 \
-    --hash=sha256:39822db2c6ad7dac9f6e43d36a3d086c503c051b09665d14a5bdf644770f6ef6 \
-    --hash=sha256:ae9ff821986b5b0dd1ea858392db7f0eb80343c2cdeee7900fa031f581e04643
+sqlfluff==3.3.0 \
+    --hash=sha256:83c29db0e7773bb5075543e2049a919632f6ced8a2b475d6a69879da52b03097 \
+    --hash=sha256:ea0b752c0b8f4602a56fa5b381eb5c806799e4941df8fc0aad0842c9d4283e03
     # via -r requirements.dev.in
 tblib==1.7.0 \
     --hash=sha256:059bd77306ea7b419d4f76016aef6d7027cc8a0785579b5aad198803435f882c \
