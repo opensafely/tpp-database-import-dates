@@ -6,11 +6,11 @@ opensafely exec python:latest python -m analysis.generate_dummy_rows
 
 import pandas
 
-from analysis import utils
+from analysis import OUTPUT_DIR, utils
 
 
 def main():
-    f_out = utils.OUTPUT_DIR / "generate_dummy_rows" / "dummy_rows.csv.gz"
+    f_out = OUTPUT_DIR / "generate_dummy_rows" / "dummy_rows.csv.gz"
     table_names = [
         "APCS",
         "CPNS",

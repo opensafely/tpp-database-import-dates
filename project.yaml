@@ -22,7 +22,7 @@ actions:
     run: python:latest python -m analysis.latest_import_dates
     outputs:
       moderately_sensitive:
-        latest_import_dates: output/latest_import_dates/latest_import_dates.csv
+        latest_import_dates: output/files_for_release/latest_import_dates.csv
 
   plot:
     needs: [query]
@@ -36,4 +36,4 @@ actions:
     run: python:latest python -m analysis.render_report
     outputs:
       moderately_sensitive:
-        report: output/render_report/report.html
+        report: output/files_for_release/report.html

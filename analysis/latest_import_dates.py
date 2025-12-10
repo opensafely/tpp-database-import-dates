@@ -2,14 +2,14 @@
 
 import pandas
 
-from analysis import utils
+from analysis import OUTPUT_DIR, RELEASE_DIR, utils
 
 
 def main():
-    f_in = utils.OUTPUT_DIR / "query" / "rows.csv.gz"
+    f_in = OUTPUT_DIR / "query" / "rows.csv.gz"
     latest_import_dates = get_latest_import_dates(f_in)
 
-    f_out = utils.OUTPUT_DIR / "latest_import_dates" / "latest_import_dates.csv"
+    f_out = RELEASE_DIR / "latest_import_dates.csv"
     utils.makedirs(f_out.parent)
     latest_import_dates.to_csv(f_out)
 
