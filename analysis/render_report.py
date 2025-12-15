@@ -11,7 +11,7 @@ import mimetypes
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from analysis import ANALYSIS_DIR, utils
+from analysis import ANALYSIS_DIR, OUTPUT_DIR, RELEASE_DIR, utils
 
 ENVIRONMENT = Environment(
     loader=FileSystemLoader(ANALYSIS_DIR),
@@ -20,15 +20,15 @@ ENVIRONMENT = Environment(
 
 
 def main():
-    f_out = utils.OUTPUT_DIR / "render_report" / "report.html"
+    f_out = RELEASE_DIR / "report.html"
     utils.makedirs(f_out.parent)
     rendered_report = render_report(
         {
             "run_date": utils.get_run_date(),
             "latest_import_dates": get_latest_import_dates(
-                utils.OUTPUT_DIR / "latest_import_dates" / "latest_import_dates.csv"
+                RELEASE_DIR / "latest_import_dates.csv"
             ),
-            "plot": utils.OUTPUT_DIR / "plot" / "plot.png",
+            "plot": OUTPUT_DIR / "plot" / "plot.png",
         }
     )
     f_out.write_text(rendered_report, encoding="utf-8")
